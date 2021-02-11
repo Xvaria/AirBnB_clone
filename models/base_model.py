@@ -17,12 +17,12 @@ class BaseModel:
     def updated_at(self, time=datetime.now()):
         self.__updated_at = time
 
-    def save(self):
-        return(datetime.now())
-
     def __str__(self):
         return("[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__))
+
+    def save(self):
+        return(datetime.now())
 
 
 a = BaseModel()
