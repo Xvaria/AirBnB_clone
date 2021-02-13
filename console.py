@@ -4,6 +4,8 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
+    def emptyline(self):
+        pass
     def do_EOF(self, line):
         return True
     def do_quit(self, line):
