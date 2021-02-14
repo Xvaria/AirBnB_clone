@@ -2,6 +2,12 @@
 """ Save the file, import objects, etc """
 from models.base_model import BaseModel
 import json
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
@@ -31,6 +37,6 @@ class FileStorage:
             with open(self.__file_path, mode="r") as f:
                 FileStorage.__objects = json.load(f)
             for val in FileStorage.__objects.values():
-                self.new(BaseModel(**val))
+                self.new(eval(val["__class__"])(**val))
         except FileNotFoundError:
             pass
