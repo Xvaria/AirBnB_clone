@@ -10,6 +10,7 @@ class BaseModel:
     """ Base model for all project, create instances
     depending of the time created, updated, kwargs, create id, etc. """
     def __init__(self, *args, **kwargs):
+        """ Initialize all the values for the obj """
         if kwargs:
             kwargs["created_at"] = datetime.strptime(kwargs["created_at"],
                                                      '%Y-%m-%dT%H:%M:%S.%f')
