@@ -44,6 +44,24 @@ class HBNBCommand(cmd.Cmd):
             obj = search[token[0] + "." + token[1]]
             print(obj)
 
+    def do_destroy(self, line):
+        token = line.split(" ")
+        search = storage.all()
+        if token[0] is "":
+            print("** class name missing **")
+        elif token[0] not in self.classes:
+            print("** class doesn't exist **")
+        elif len(token) < 2:
+            print("** instance id missing **")
+        elif token[0] + "." + token[1] not in search:
+            print("** no instance found **")
+        else:
+            print(type(search[token[0] + "." + token[1]]))
+            del search[token[0] + "." + token[1]]
+            b = eval(token[0])()
+            b.save()
+            print("PEENTAKILLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
+
     def help_quit(self):
         print("Exit the program")
 
