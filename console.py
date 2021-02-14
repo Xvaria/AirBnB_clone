@@ -2,8 +2,7 @@
 import cmd
 import re
 from models.base_model import BaseModel
-from models.user import User
-import models
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -32,22 +31,18 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, line):
         token = line.split(" ")
-        with open("file.json") as f:
-            file_text = f.read()
-        id_token = re.findall(r"[{\"|\ \']BaseModel\.[a-zA-Z0-9-]*", file_text)
-        for i in range(len(id_token)):
-            id_token[i] = id_token[i][1:]
-
+        search = storage.all()
         if token[0] is "":
             print("** class name missing **")
         elif token[0] not in self.classes:
             print("** class doesn't exist **")
         elif len(token) < 2:
             print("** instance id missing **")
-        elif token[0] + "." + token[1] not in id_token:
+        elif token[0] + "." + token[1] not in search:
             print("** no instance found **")
         else:
-            print("asdasd")
+            obj = search[token[0] + "." + token[1]]
+            print(obj)
 
     def help_quit(self):
         print("Exit the program")
