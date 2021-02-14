@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+""" Set the place """
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
+    """ Create a lot of public class attributes to be used """
     city_id = ""
     user_id = ""
     name = ""
