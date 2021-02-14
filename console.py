@@ -60,7 +60,6 @@ class HBNBCommand(cmd.Cmd):
             del search[token[0] + "." + token[1]]
             b = eval(token[0])()
             b.save()
-            print("PEENTAKILLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
 
     def help_quit(self):
         print("Exit the program")
