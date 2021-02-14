@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import cmd
-import re
+import json
 from models.base_model import BaseModel
 from models import storage
 
@@ -57,8 +57,10 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             del search[token[0] + "." + token[1]]
-            b = eval(token[0])()
-            b.save()
+            storage.__objects = search
+            storage.save()
+            #with open("file.json", mode="w", encoding="utf-8") as f:
+            #    json.dump(search, f)
 
     def do_all(self, line):
         dic = storage.all()
