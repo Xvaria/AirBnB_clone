@@ -1,10 +1,14 @@
 #!/usr/bin/python3
+""" Base model for all project, create instances 
+depending of the time created, updated, kwargs, create id, etc. """
 import uuid
 from datetime import datetime
 import models
 
 
 class BaseModel:
+    """ Base model for all project, create instances 
+    depending of the time created, updated, kwargs, create id, etc. """
     def __init__(self, *args, **kwargs):
         if kwargs:
             kwargs["created_at"] = datetime.strptime(kwargs["created_at"],\
