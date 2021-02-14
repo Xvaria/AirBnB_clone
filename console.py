@@ -8,7 +8,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     classes = ["BaseModel", "User", "State", "City", "Amenity",
-               "Place", "Review"]
+               "Place", "Review", "Bro"]
 
     def emptyline(self):
         pass
@@ -56,10 +56,24 @@ class HBNBCommand(cmd.Cmd):
         elif token[0] + "." + token[1] not in search:
             print("** no instance found **")
         else:
-            print(type(search[token[0] + "." + token[1]]))
             del search[token[0] + "." + token[1]]
             b = eval(token[0])()
             b.save()
+
+    def do_all(self, line):
+        dic = storage.all()
+        lis = []
+        if line is "":
+            for k in dic.keys():
+                lis.append(str(dic[k]))
+            print(lis)
+        elif line not in self.classes:
+            print("** class doesn't exist **")
+        else:
+            for k in dic.keys():
+                if line in k:
+                    lis.append(str(dic[k]))
+            print(lis)
 
     def help_quit(self):
         print("Exit the program")
