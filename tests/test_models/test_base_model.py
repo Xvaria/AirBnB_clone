@@ -4,6 +4,7 @@
 from models.base_model import BaseModel
 import datetime
 import unittest
+import uuid
 
 
 class TestBaseModel(unittest.TestCase):
