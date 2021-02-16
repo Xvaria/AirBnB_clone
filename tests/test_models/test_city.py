@@ -11,7 +11,7 @@ from models.review import Review
 
 
 class Testcity(unittest.TestCase):
-
+    ''' Class to test city '''
     def test_pep8_conformance_city(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
