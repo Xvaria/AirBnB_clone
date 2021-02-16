@@ -107,6 +107,20 @@ class HBNBCommand(cmd.Cmd):
     def help_EOF(self):
         print("Exit the program")
 
+    def default(self, line):
+        ltoken = line.split(".")
+        if ltoken[0] not in self.classes:
+            print("*** Unknown syntax:", line)
+        else:
+            #            try:
+            if ltoken[1] == "all()":
+                print("asd")
+                self.do_all(ltoken[0])
+            else:
+                print("*** Unknown syntax:", line)
+                #            except:
+                #                print("*** Unknown syntax:", line)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
