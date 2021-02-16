@@ -138,6 +138,8 @@ class HBNBCommand(cmd.Cmd):
                     if ltoken[0] in i:
                         h += 1
                 print(h)
+            elif ltoken[1] in "show":
+                print("Im in show")
             else:
                 print("*** Unknown syntax:", line)
 
