@@ -79,7 +79,6 @@ class Test_City_class(unittest.TestCase):
         """
         Checks for datetime attributes
         """
-        #Test if two instnace has diferent datetime
         my_city = City()
         my_city_2 = City()
         self.assertNotEqual(my_city.created_at, my_city_2.created_at)
@@ -157,7 +156,8 @@ class Test_City_class(unittest.TestCase):
         my_city.my_number = 89
         my_city.my_float = 100.54
         my_city.my_list = ["Hello", "world", 100]
-        my_city.my_dict = {'name': 'Betty', 'last_name': 'Holberton', 'age': 85}
+        my_city.my_dict = {'name': 'Betty', 'last_name': 'Holberton',
+                           'age': 85}
         my_city.save()
         my_city_json = my_city.to_dict()
         # checks if the method really convert to a dict type all the attributes
@@ -175,7 +175,6 @@ class Test_City_class(unittest.TestCase):
                 self.assertEqual(my_city.__class__.__name__, value)
                 self.assertTrue(type(value) == str)
             else:
-                #checks the value for others attributes
                 self.assertEqual(getattr(my_city, key), value)
                 # Checks the types and formats of the attributes
                 if key == "id":
