@@ -14,6 +14,7 @@ from models.user import User
 
 
 class Teststate(unittest.TestCase):
+    ''' Test state class '''
     def test_pep8_conformance_state(self):
         """
         Test that we conform to PEP8.
@@ -23,10 +24,12 @@ class Teststate(unittest.TestCase):
         self.assertEqual(result.total_errors, 0, "Found style errors")
 
     def test_class(self):
+        ''' Test class state '''
         state1 = State()
         self.assertEqual(state1.__class__.__name__, "State")
 
     def test_father(self):
+        ''' Test inherit '''
         state1 = State()
         self.assertEqual(state1.__class__.__name__, "State")
 
