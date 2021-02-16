@@ -44,3 +44,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(a, b)
         self.assertEqual(type(b.created_at), datetime.datetime)
         self.assertEqual(type(b.updated_at), datetime.datetime)
+
+    def test_str(self):
+        ''' Testing str '''
+        test4 = BaseModel()
+        print(test4)
