@@ -7,7 +7,7 @@ from models.user import User
 
 
 class Testuser(unittest.TestCase):
-
+    """ Class to test user """
     def test_pep8_conformance_user(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
