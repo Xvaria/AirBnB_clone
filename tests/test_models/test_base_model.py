@@ -47,5 +47,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_str(self):
         ''' Testing str '''
-        test4 = BaseModel()
-        print(test4)
+        model = BaseModel()
+        string = "[{}] ({}) {}".format(model.__class__.__name__, model.id,
+                                       model.__dict__)
+        self.assertEqual(str(model), string)
