@@ -57,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
             print(obj)
 
     def do_destroy(self, line):
-        "method to delete an existing instance and save its changes to the JSON\
+        "method to delete an existing instance and save changes to the JSON\
         file according to class and id"
         token = line.split(" ")
         search = storage.all()
@@ -98,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, line):
-        "method to display the instances of a specific or all classes stored in\
+        "method to display the instance of a specific or all classes stored in\
         the JSON file"
         dic = storage.all()
         lis = []
@@ -133,6 +133,7 @@ class HBNBCommand(cmd.Cmd):
                 self.do_all(ltoken[0])
             else:
                 print("*** Unknown syntax:", line)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
