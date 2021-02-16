@@ -11,6 +11,7 @@ from models.review import Review
 
 
 class Testpep8(unittest.TestCase):
+    ''' Test for pep8 '''
     def test_pep8_conformance_review(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
@@ -18,9 +19,11 @@ class Testpep8(unittest.TestCase):
         self.assertEqual(result.total_errors, 0, "Found style errors")
 
     def test_class(self):
+        ''' Test for class review '''
         rev1 = Review()
         self.assertEqual(rev1.__class__.__name__, "Review")
 
     def test_father(self):
+        ''' Test for inherit '''
         rev1 = Review()
         self.assertTrue(issubclass(rev1.__class__, BaseModel))
