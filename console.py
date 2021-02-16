@@ -131,6 +131,13 @@ class HBNBCommand(cmd.Cmd):
         else:
             if ltoken[1] == "all()":
                 self.do_all(ltoken[0])
+            elif ltoken[1] == "count()":
+                dic = storage.all()
+                h = 0
+                for i in dic.keys():
+                    if ltoken[0] in i:
+                        h += 1
+                print(h)
             else:
                 print("*** Unknown syntax:", line)
 
