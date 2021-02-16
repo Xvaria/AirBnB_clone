@@ -154,6 +154,16 @@ class HBNBCommand(cmd.Cmd):
                 except IndexError:
                     pass
                 self.do_destroy(conc)
+            elif "update" in ltoken[1]:
+                toks = ltoken[1].split("\"")
+                conc = ltoken[0]
+                try:
+                    conc = ltoken[0] + " " + toks[1] + " " + toks[3] + " " +\
+                           toks[5]
+                except IndexError:
+                    pass
+                print(conc)
+                self.do_update(conc)
             else:
                 print("*** Unknown syntax:", line)
 
