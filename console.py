@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"the command interpreter"
 import cmd
 from models.user import User
 from models.state import State
@@ -11,20 +12,25 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
+    "console opening and looping"
     prompt = "(hbnb) "
     classes = ["BaseModel", "User", "State", "City", "Amenity",
                "Place", "Review"]
 
     def emptyline(self):
+        "if the command space enters empty it does nothing"
         pass
 
     def do_EOF(self, line):
+        "methods to close the console"
         return True
 
     def do_quit(self, line):
+        "methods to close the console"
         return True
 
     def do_create(self, line):
+        "method to create a new instance according to the class"
         if line == "":
             print("** class name missing **")
         elif line in self.classes:
@@ -35,6 +41,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
+        "method to display an existing instance according to class and id"
         token = line.split(" ")
         search = storage.all()
         if token[0] is "":
@@ -50,6 +57,8 @@ class HBNBCommand(cmd.Cmd):
             print(obj)
 
     def do_destroy(self, line):
+        "method to delete an existing instance and save its changes to the JSON\
+        file according to class and id"
         token = line.split(" ")
         search = storage.all()
         if token[0] is "":
@@ -66,6 +75,8 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_update(self, line):
+        "method to update the data of an instance and save it in a JSON file\
+        according to the class, the id, the data type and the value."
         token = line.split(" ")
         search = storage.all()
         if token[0] is "":
@@ -87,6 +98,8 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, line):
+        "method to display the instances of a specific or all classes stored in\
+        the JSON file"
         dic = storage.all()
         lis = []
         if line is "":
@@ -102,25 +115,24 @@ class HBNBCommand(cmd.Cmd):
             print(lis)
 
     def help_quit(self):
+        "Print the documentation for this command"
         print("Exit the program")
 
     def help_EOF(self):
+        "Print the documentation for this command"
         print("Exit the program")
 
     def default(self, line):
+        "parses the input, if it is not an existing command it enters this\
+        method and performs an action depending on its class"
         ltoken = line.split(".")
         if ltoken[0] not in self.classes:
             print("*** Unknown syntax:", line)
         else:
-            #            try:
             if ltoken[1] == "all()":
-                print("asd")
                 self.do_all(ltoken[0])
             else:
                 print("*** Unknown syntax:", line)
-                #            except:
-                #                print("*** Unknown syntax:", line)
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
