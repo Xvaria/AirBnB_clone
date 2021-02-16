@@ -138,8 +138,15 @@ class HBNBCommand(cmd.Cmd):
                     if ltoken[0] in i:
                         h += 1
                 print(h)
-            elif ltoken[1] in "show":
-                print("Im in show")
+            elif "show" in ltoken[1]:
+                toks = ltoken[1].split("\"")
+                conc = ltoken[0]
+                try:
+                    conc = ltoken[0] + " " + toks[1]
+                except IndexError:
+                    pass
+                self.do_show(conc)
+#                self.do_show(ltoken[])
             else:
                 print("*** Unknown syntax:", line)
 
