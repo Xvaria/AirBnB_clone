@@ -77,7 +77,6 @@ class Test_Amenity_class(unittest.TestCase):
         """
         Checks for datetime attributes
         """
-        #Test if two instnace has diferent datetime
         my_amenity = Amenity()
         my_amenity_2 = Amenity()
         self.assertNotEqual(my_amenity.created_at, my_amenity_2.created_at)
@@ -141,8 +140,8 @@ class Test_Amenity_class(unittest.TestCase):
         Checks str method
         """
         my_amenity = Amenity()
-        string = "[{}] ({}) {}".format(my_amenity.__class__.__name__, my_amenity.id,
-                                       my_amenity.__dict__)
+        string = "[{}] ({}) {}".format(my_amenity.__class__.__name__,
+                                       my_amenity.id, my_amenity.__dict__)
         self.assertEqual(str(my_amenity), string)
 
     def test_to_dict_method(self):
@@ -155,7 +154,8 @@ class Test_Amenity_class(unittest.TestCase):
         my_amenity.my_number = 89
         my_amenity.my_float = 100.54
         my_amenity.my_list = ["Hello", "world", 100]
-        my_amenity.my_dict = {'name': 'Betty', 'last_name': 'Holberton', 'age': 85}
+        my_amenity.my_dict = {'name': 'Betty', 'last_name':
+                              'Holberton', 'age': 85}
         my_amenity.save()
         my_amenity_json = my_amenity.to_dict()
         # checks if the method really convert to a dict type all the attributes
@@ -173,7 +173,6 @@ class Test_Amenity_class(unittest.TestCase):
                 self.assertEqual(my_amenity.__class__.__name__, value)
                 self.assertTrue(type(value) == str)
             else:
-                #checks the value for others attributes
                 self.assertEqual(getattr(my_amenity, key), value)
                 # Checks the types and formats of the attributes
                 if key == "id":
