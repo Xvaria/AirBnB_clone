@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ Base model for all project, create instances
 depending of the time created, updated, kwargs, create id, etc. """
-import uuid
 from datetime import datetime
 import models
+import uuid
 
 
 class BaseModel:
