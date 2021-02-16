@@ -52,9 +52,8 @@ class TestBaseModel(unittest.TestCase):
                                        model.__dict__)
         self.assertEqual(str(model), string)
 
-        def test_to_dict_method(self):
-        """ Check dict model """
-        # Checks if it convert to a dict type
+    def test_to_dict_method(self):
+        """ Check """
         model = BaseModel()
         model.name = "Holberton"
         model.my_number = 89
@@ -73,14 +72,11 @@ class TestBaseModel(unittest.TestCase):
                 _datetime = getattr(model, key).isoformat()
                 self.assertEqual(_datetime, value)
                 self.assertTrue(type(value) == str)
-            # checks the class name attribute and its type
             elif key == "__class__":
                 self.assertEqual(model.__class__.__name__, value)
                 self.assertTrue(type(value) == str)
             else:
-                #checks the value for others attributes
                 self.assertEqual(getattr(model, key), value)
-                # Checks the types and formats of the attributes
                 if key == "id":
                     version = uuid.UUID(value).version
                     self.assertEqual(version, 4)
