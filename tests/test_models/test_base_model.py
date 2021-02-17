@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 '''Test to the BaseModel class'''
-
+from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
-import datetime
-import unittest
+from datetime import datetime
+import models
 import uuid
+import unittest
+import os
 
 
 class TestBaseModel(unittest.TestCase):
