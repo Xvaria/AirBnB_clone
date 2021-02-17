@@ -92,3 +92,33 @@ class TestBaseModel(unittest.TestCase):
                     self.assertTrue(type(value) == float)
                 elif key == "my_dict":
                     self.assertTrue(type(value) == dict)
+
+    def test_save_method(self):
+        ''' Tests for the save method of BaseModel. '''
+        # Create test BaseModel instance.
+        base = BaseModel()
+
+        # Test for dictionary from to dict method
+        self.assertEqual(type(base.to_dict()), dict)
+
+        # Save the instance in file.json
+        base.save()
+
+        # Test if file was created successfully
+        cwd = os.getcwd()
+        file_path = cwd + "/file.json"
+        self.assertTrue(os.path.exists(file_path))
+
+        # Create test strings of BaseModel
+        string_base_id = "BaseModel" + "." + base.id
+        string_base__class__ = "BaseModel"
+        string_base_created = base.created_at.isoformat()
+        string_base_updated = base.updated_at.isoformat()
+
+        # Open and test if string is present in the file.
+        with open("file.json", "r") as f:
+            file_string = f.read()
+            self.assertIn(string_base_id, file_string)
+            self.assertIn(string_base__class__, file_string)
+            self.assertIn(string_base_created, file_string)
+            self.assertIn(string_base_updated, file_string)
