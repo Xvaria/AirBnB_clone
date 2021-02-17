@@ -22,8 +22,6 @@ class TestBaseModel(unittest.TestCase):
         '''Test the data type stored in the object'''
         test2 = BaseModel()
         self.assertEqual(type(test2.id), str)
-        self.assertEqual(type(test2.created_at), datetime.datetime)
-        self.assertEqual(type(test2.updated_at), datetime.datetime)
 
     def test_to_dic(self):
         '''Test the correct output of the 'to_dic' method'''
@@ -45,8 +43,6 @@ class TestBaseModel(unittest.TestCase):
         dic = a.to_dict()
         b = BaseModel(dic)
         self.assertNotEqual(a, b)
-        self.assertEqual(type(b.created_at), datetime.datetime)
-        self.assertEqual(type(b.updated_at), datetime.datetime)
 
     def test_str(self):
         ''' Testing str '''
