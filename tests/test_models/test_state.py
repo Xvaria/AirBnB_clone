@@ -77,7 +77,6 @@ class Test_Base_model(unittest.TestCase):
         """
         Checks for datetime attributes
         """
-        #Test if two instnace has diferent datetime
         my_state = State()
         my_state_2 = State()
         self.assertNotEqual(my_state.created_at, my_state_2.created_at)
@@ -141,8 +140,8 @@ class Test_Base_model(unittest.TestCase):
         Checks str method
         """
         my_state = State()
-        string = "[{}] ({}) {}".format(my_state.__class__.__name__, my_state.id,
-                                       my_state.__dict__)
+        string = "[{}] ({}) {}".format(my_state.__class__.__name__,
+                                       my_state.id, my_state.__dict__)
         self.assertEqual(str(my_state), string)
 
     def test_to_dict_method(self):
@@ -155,7 +154,8 @@ class Test_Base_model(unittest.TestCase):
         my_state.my_number = 89
         my_state.my_float = 100.54
         my_state.my_list = ["Hello", "world", 100]
-        my_state.my_dict = {'name': 'Betty', 'last_name': 'Holberton', 'age': 85}
+        my_state.my_dict = {'name': 'Betty', 'last_name': 'Holberton',
+                            'age': 85}
         my_state.save()
         my_state_json = my_state.to_dict()
         # checks if the method really convert to a dict type all the attributes
@@ -173,7 +173,6 @@ class Test_Base_model(unittest.TestCase):
                 self.assertEqual(my_state.__class__.__name__, value)
                 self.assertTrue(type(value) == str)
             else:
-                #checks the value for others attributes
                 self.assertEqual(getattr(my_state, key), value)
                 # Checks the types and formats of the attributes
                 if key == "id":
