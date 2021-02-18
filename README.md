@@ -43,9 +43,11 @@ You could build this program in another environment or O.S., but, could present 
 ### Authors
  - Nicolás Urrea: [@NicolasOPF](https://www.github.com/NicolasOPF)
  - Diego Ahumada: [@Xvaria](https://www.github.com/Xvaria)
+
 License
 -----
 MIT - Holberton School
+
 Data-time
 -----
 - February 17 2021
