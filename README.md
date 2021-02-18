@@ -31,3 +31,6 @@ Do operations on objects (count, compute stats, etc…)
 Update attributes of an object
 Destroy an object
 
+## UML Diagram
+
+!(https://raw.githubusercontent.com/Nicolasopf/AirBnB_clone/master/classes_OLIPY.png)
