@@ -191,7 +191,7 @@ class HBNBCommand(cmd.Cmd):
                                         val = puntoken[j][1:]
                             j += 1
                         conc = ltoken[0] + " " + toks[1] + " " +\
-                               key + " " + val
+                            key + " " + val
                         print(conc)
                         self.do_update(conc)
                         j = 0
@@ -208,6 +208,7 @@ class HBNBCommand(cmd.Cmd):
                     self.do_update(conc)
             else:
                 print("*** Unknown syntax:", line)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
