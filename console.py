@@ -155,18 +155,59 @@ class HBNBCommand(cmd.Cmd):
                     pass
                 self.do_destroy(conc)
             elif "update" in ltoken[1]:
-                toks = ltoken[1].split("\"")
-                conc = ltoken[0]
-                try:
-                    conc = ltoken[0] + " " + toks[1] + " " + toks[3] + " " +\
-                           toks[5]
-                except IndexError:
-                    pass
-                print(conc)
-                self.do_update(conc)
+                comtoken = ltoken[1].split(",")
+                toks = comtoken[0].split("\"")
+                if " {" in comtoken[1]:
+                    comtoken[1] = comtoken[1][1:]
+                    i = 1
+                    j = 0
+                    while i < len(comtoken):
+                        puntoken = comtoken[i].split(":")
+                        while j < len(puntoken):
+                            if "\"" in puntoken[j][1]:
+                                toks2 = puntoken[j].split("\"")
+                                print(puntoken[j])
+                                if j == 0:
+                                    key = toks2[1]
+                                else:
+                                    val = toks2[1]
+                            elif "\'" in puntoken[j][1]:
+                                print("holi")
+                                toks2 = puntoken[j].split("\'")
+                                if j == 0:
+                                    key = toks2[1]
+                                else:
+                                    val = toks2[1]
+                            else:
+                                if puntoken[j][-1] == ")":
+                                    if j == 0:
+                                        key = puntoken[j][1:-2]
+                                    else:
+                                        val = puntoken[j][1:-2]
+                                else:
+                                    if j == 0:
+                                        key = puntoken[j][1:]
+                                    else:
+                                        val = puntoken[j][1:]
+                            j += 1
+                        conc = ltoken[0] + " " + toks[1] + " " +\
+                               key + " " + val
+                        print(conc)
+                        self.do_update(conc)
+                        j = 0
+                        i += 1
+                else:
+                    toks = ltoken[1].split("\"")
+                    conc = ltoken[0]
+                    try:
+                        conc = ltoken[0] + " " + toks[1] + " " + toks[3] + " "\
+                               + toks[5]
+                    except IndexError:
+                        pass
+                    print(conc)
+                    self.do_update(conc)
             else:
                 print("*** Unknown syntax:", line)
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
