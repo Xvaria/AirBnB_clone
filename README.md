@@ -33,4 +33,4 @@ Destroy an object
 
 ## UML Diagram
 
-!(https://raw.githubusercontent.com/Nicolasopf/AirBnB_clone/master/classes_OLIPY.png)
+[![N|Solid](https://raw.githubusercontent.com/Nicolasopf/AirBnB_clone/master/classes_OLIPY.png)]
