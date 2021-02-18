@@ -31,3 +31,26 @@ Do operations on objects (count, compute stats, etc…)
 Update attributes of an object
 Destroy an object
 
+## UML Diagram
+
+![N|Solid](https://raw.githubusercontent.com/Nicolasopf/AirBnB_clone/master/classes_OLIPY.png)
+
+#### Building environment
+You could build this program in another environment or O.S., but, could present problems with external libraries needed for this program-function:
+* Python 3.4
+* Ubuntu 14.04
+* You coul use the pep8 format to beauty and format your code
+### Authors
+ - Nicolás Urrea: [@NicolasOPF](https://www.github.com/NicolasOPF)
+ - Diego Ahumada: [@Xvaria](https://www.github.com/Xvaria)
+
+License
+-----
+MIT - Holberton School
+
+Data-time
+-----
+- February 17 2021
+- Cohort 13
+-----
+**Holberton School CH13!**
