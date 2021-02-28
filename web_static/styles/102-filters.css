@@ -71,13 +71,8 @@ ul, ol{
     float: right;
     margin: 11px 30px 11px 0;
     opacity: 1;
-}
-.filters button p{
     color: #FFFFFF;
     font-size: 18px;
-    margin: 0;
-    padding: 0;
-    border-style: none;
 }
 .filters button:hover{
     opacity: 0.9;
@@ -106,18 +101,11 @@ ul, ol{
         width: 20px;
     }
     .filters button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
         width: 48px;
-        height: 48px;
         border-radius: 150px;
         margin: 11px 11px 11px 0;
         background: #FF5A5F url(../images/lupita.svg) no-repeat center;
         background-size: 2300%;
-    }
-    .filters button p{
-        display: none;
+        font-size: 0%;
     }
 }
