@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    color: #484848;
+    font-size: 14px;
+    width: 100%;
+    font-family: Circular,"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container{
+    width: 1000px;
+    margin: 30px auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+@media (max-width: 1024px){
+    .container{
+        width: 98%;
+    }
+}
